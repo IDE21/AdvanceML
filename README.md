@@ -1,8 +1,10 @@
-# AdvanceML
+Here’s the updated README file, reflecting the project based on the provided Python notebook:
 
-# **Advanced Machine Learning Project**
+---
 
-This repository contains a comprehensive machine learning pipeline designed to classify a dataset's target variable (`status`) using advanced preprocessing, multiple classification models, and insightful visualizations. The focus is on training robust models, analyzing their performance, and visualizing both the data and results for better interpretability.
+# **Advanced Machine Learning Project: Parkinson's Disease Detection**
+
+This repository contains a comprehensive machine learning pipeline designed to classify Parkinson's Disease using a dataset of medical features. It includes advanced preprocessing, multiple classification models, and insightful visualizations. The focus is on training robust models, analyzing their performance, and understanding the most influential features through visualization.
 
 ---
 
@@ -22,15 +24,15 @@ This repository contains a comprehensive machine learning pipeline designed to c
 
 ## **Project Overview**
 
-The goal of this project is to develop machine learning models to predict the target variable (`status`) using various classification algorithms, including:
+The goal of this project is to develop machine learning models to predict the presence of Parkinson’s Disease using various classification algorithms:
 - **Decision Tree Classifier**
 - **Random Forest Classifier**
 - **Gradient Boosting Classifier**
 
 Additionally, the repository includes detailed visualizations to:
-- Analyze the data structure and relationships.
+- Analyze the structure and relationships within the dataset.
 - Evaluate model performance.
-- Understand the importance of features in classification.
+- Understand the importance of vocal and other medical features in classification.
 
 ---
 
@@ -43,8 +45,10 @@ Additionally, the repository includes detailed visualizations to:
 - **Target Variable**: `status` (binary classification)
 
 ### **Target Variable**
-- `0`: Indicates one category (e.g., absence of a condition).
-- `1`: Indicates another category (e.g., presence of a condition).
+- `0`: No Parkinson’s Disease detected.
+- `1`: Parkinson’s Disease detected.
+
+The dataset consists of vocal and medical measurements, including metrics like frequency variation and amplitude variation, which are key indicators of Parkinson’s Disease.
 
 ---
 
@@ -54,10 +58,10 @@ Key features in the dataset include:
 - **MDVP:Fo(Hz)**: Average vocal fundamental frequency.
 - **MDVP:Fhi(Hz)**: Maximum vocal fundamental frequency.
 - **MDVP:Flo(Hz)**: Minimum vocal fundamental frequency.
-- **Jitter(%)**: Measure of frequency variation.
-- **Shimmer**: Measure of amplitude variation.
+- **Jitter(%)**: Measure of frequency variation in speech.
+- **Shimmer**: Measure of amplitude variation in speech.
 
-The dataset underwent extensive preprocessing to handle missing values, scale features, and prepare data for machine learning models.
+The features underwent preprocessing to handle missing values, scale numerical attributes, and prepare the data for machine learning models.
 
 ---
 
@@ -68,20 +72,20 @@ The dataset underwent extensive preprocessing to handle missing values, scale fe
    - Handling missing values via mean imputation.
    - Standardizing numerical features using `StandardScaler`.
 2. **Model Training**:
-   - Decision Tree Classifier.
-   - Random Forest Classifier (Ensemble).
-   - Gradient Boosting Classifier (Ensemble).
+   - Decision Tree Classifier with depth limitation.
+   - Random Forest Classifier with feature and depth restrictions.
+   - Gradient Boosting Classifier with regularization.
 3. **Evaluation**:
-   - Accuracy, precision, recall, F1-score.
-   - Confusion matrix and ROC curves.
+   - Accuracy, precision, recall, and F1-score.
+   - Confusion matrices to visualize performance.
+   - Learning curves to analyze training behavior.
 4. **Visualizations**:
-   - Data distributions and correlations.
    - Feature importance analysis.
-   - Comparison of model performance.
+   - Validation accuracy comparison.
 
 ### **Key Techniques**
+- **Anti-Overfitting Measures**: Regularization, feature selection, and cross-validation.
 - **Ensemble Learning**: Leveraged Random Forest and Gradient Boosting for better generalization.
-- **Visualization**: Detailed plots for insights into data and models.
 
 ---
 
@@ -90,34 +94,27 @@ The dataset underwent extensive preprocessing to handle missing values, scale fe
 ### **Model Performance**
 | Metric              | Decision Tree | Random Forest | Gradient Boosting |
 |---------------------|---------------|---------------|-------------------|
-| **Training Accuracy** | 100%          | 100%          | 100%              |
-| **Testing Accuracy**  | 97.49%        | 99.16%        | 98.33%            |
-| **Precision (Class 1)**| 86%           | 93%           | 92%               |
-| **Recall (Class 1)**   | 92%           | 100%          | 92%               |
-| **F1-Score (Class 1)** | 89%           | 96%           | 92%               |
+| **Training Accuracy** | 97.99%        | 98.74%        | 97.92%            |
+| **Testing Accuracy**  | 94.98%        | 97.49%        | 96.24%            |
+| **Validation Accuracy**| 94.11%        | 97.18%        | 96.02%            |
 
 ### **Key Insights**
-- Random Forest achieved the best overall performance, especially in correctly identifying the minority class.
-- Gradient Boosting followed closely, offering competitive accuracy and precision.
-- Decision Tree was accurate but lacked the robustness of ensemble methods.
+- Random Forest achieved the highest testing and validation accuracy, demonstrating strong generalization.
+- Gradient Boosting closely followed with competitive performance and error reduction.
+- Decision Tree was accurate but prone to overfitting without depth limitations.
 
 ---
 
 ## **Visualizations**
 
 This repository includes the following visualizations:
-1. **Data Analysis**:
-   - Missing Values Heatmap
-   - Correlation Heatmap
-   - Target Variable Distribution
+1. **Model Training and Performance**:
+   - Learning Curves for Decision Tree, Random Forest, and Gradient Boosting.
+   - Confusion Matrices for all models.
+   - Validation Accuracy Comparison Bar Plot.
 2. **Feature Insights**:
-   - Pairplots of feature relationships.
-   - KDE plots of individual feature distributions.
-   - Feature Importance bar charts.
-3. **Model Performance**:
-   - Confusion Matrix heatmaps for all models.
-   - ROC Curves for ensemble models.
-   - Learning Curves for model training performance.
+   - Pairplots and distribution plots of key features.
+   - Feature Importance bar chart (Random Forest).
 
 ---
 
@@ -125,13 +122,13 @@ This repository includes the following visualizations:
 
 ### **Prerequisites**
 - Python 3.8 or later.
-- Libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`, `joblib`.
+- Libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`.
 
 ### **Setup**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/advanced-ml-project.git
-   cd advanced-ml-project
+   git clone https://github.com/yourusername/advanced-ml-parkinsons.git
+   cd advanced-ml-parkinsons
    ```
 2. Install dependencies:
    ```bash
@@ -141,7 +138,7 @@ This repository includes the following visualizations:
    ```bash
    jupyter notebook
    ```
-4. Load the `AdvanceML.ipynb` notebook and execute the cells.
+4. Load the `Parkinson's_Disease.ipynb` notebook and execute the cells.
 
 ---
 
